@@ -89,13 +89,12 @@
       <bpmn:incoming>Flow_0c469cl</bpmn:incoming>
       <bpmn:outgoing>Flow_0ndiobo</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:endEvent id="Event_1lc0sku" name="Inscripción realizada">
-      <bpmn:incoming>Flow_0ndiobo</bpmn:incoming>
-      <bpmn:terminateEventDefinition id="TerminateEventDefinition_0jvwax6" />
-    </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_15b5gyl" sourceRef="Activity_03oiff8" targetRef="Activity_1lew5hk" />
     <bpmn:sequenceFlow id="Flow_0c469cl" sourceRef="Activity_1lew5hk" targetRef="Activity_0fis6o7" />
     <bpmn:sequenceFlow id="Flow_0ndiobo" sourceRef="Activity_0fis6o7" targetRef="Event_1lc0sku" />
+    <bpmn:endEvent id="Event_1lc0sku" name="Inscripción realizada">
+      <bpmn:incoming>Flow_0ndiobo</bpmn:incoming>
+    </bpmn:endEvent>
   </bpmn:process>
   <bpmn:process id="Process_13p5cin" isExecutable="false" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -162,7 +161,7 @@
         <dc:Bounds x="1900" y="160" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1u7wqe7_di" bpmnElement="Event_1lc0sku">
+      <bpmndi:BPMNShape id="Event_0keoqsa_di" bpmnElement="Event_1lc0sku">
         <dc:Bounds x="2112" y="182" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2104" y="225" width="53" height="27" />

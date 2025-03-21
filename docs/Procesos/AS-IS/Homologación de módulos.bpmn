@@ -9,7 +9,6 @@
     <bpmn:laneSet id="LaneSet_0xr12vg">
       <bpmn:lane id="Lane_08a5brh" name="Coorcinador del Plan BULL">
         <bpmn:flowNodeRef>Activity_1cnchpt</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_11oyzq8</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1b29rol</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0y08ewm</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_0h84bv7</bpmn:flowNodeRef>
@@ -36,7 +35,6 @@
         <bpmn:flowNodeRef>Event_0mhzsvj</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1sx2rc1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1lxn9ys</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0asklzb</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1nr89cw</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_075y1rt</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0q8cg55</bpmn:flowNodeRef>
@@ -63,15 +61,13 @@
         <bpmn:flowNodeRef>Activity_19zhnlu</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_04fw4u7</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0gjeaq8</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_11oyzq8</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0asklzb</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:task id="Activity_1cnchpt" name="Consultar puntaje de prueba en plataforma">
       <bpmn:incoming>Flow_0bukylp</bpmn:incoming>
       <bpmn:outgoing>Flow_0tcx83v</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Activity_11oyzq8" name="Clasificar al módulo según resultados">
-      <bpmn:incoming>Flow_0tcx83v</bpmn:incoming>
-      <bpmn:outgoing>Flow_12pgdjp</bpmn:outgoing>
     </bpmn:task>
     <bpmn:task id="Activity_1b29rol" name="Consultar estudiante en documentos relacionados">
       <bpmn:incoming>Flow_12yvzbq</bpmn:incoming>
@@ -181,10 +177,6 @@
     <bpmn:task id="Activity_1lxn9ys" name="Notificar a estudiante">
       <bpmn:incoming>Flow_1yjnuem</bpmn:incoming>
       <bpmn:outgoing>Flow_1azobvf</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Activity_0asklzb" name="Ingresar homologación a consolidado">
-      <bpmn:incoming>Flow_12pgdjp</bpmn:incoming>
-      <bpmn:outgoing>Flow_1yjnuem</bpmn:outgoing>
     </bpmn:task>
     <bpmn:task id="Activity_1nr89cw" name="Notificar a estudiante">
       <bpmn:incoming>Flow_1khsbc1</bpmn:incoming>
@@ -338,6 +330,14 @@
     <bpmn:sequenceFlow id="Flow_0vf1sed" sourceRef="Activity_0gjeaq8" targetRef="Activity_19zhnlu" />
     <bpmn:sequenceFlow id="Flow_1yu6a8i" sourceRef="Activity_19zhnlu" targetRef="Event_04fw4u7" />
     <bpmn:sequenceFlow id="Flow_1krppt3" sourceRef="Activity_1u4tk15" targetRef="Activity_0jbugsz" />
+    <bpmn:task id="Activity_11oyzq8" name="Clasificar al módulo según resultados">
+      <bpmn:incoming>Flow_0tcx83v</bpmn:incoming>
+      <bpmn:outgoing>Flow_12pgdjp</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_0asklzb" name="Ingresar homologación a consolidado">
+      <bpmn:incoming>Flow_12pgdjp</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yjnuem</bpmn:outgoing>
+    </bpmn:task>
   </bpmn:process>
   <bpmn:process id="Process_04qg3n2" isExecutable="false" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -352,10 +352,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1cnchpt_di" bpmnElement="Activity_1cnchpt">
         <dc:Bounds x="1360" y="140" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_11oyzq8_di" bpmnElement="Activity_11oyzq8">
-        <dc:Bounds x="1580" y="140" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1b29rol_di" bpmnElement="Activity_1b29rol">
@@ -466,9 +462,6 @@
       <bpmndi:BPMNShape id="Activity_1lxn9ys_di" bpmnElement="Activity_1lxn9ys">
         <dc:Bounds x="1920" y="140" width="100" height="80" />
         <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1qzhd1o_di" bpmnElement="Activity_0asklzb">
-        <dc:Bounds x="1760" y="140" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1nr89cw_di" bpmnElement="Activity_1nr89cw">
         <dc:Bounds x="2520" y="250" width="100" height="80" />
@@ -584,6 +577,13 @@
       <bpmndi:BPMNShape id="BPMNShape_1ga2l6n" bpmnElement="Activity_0gjeaq8">
         <dc:Bounds x="1810" y="1400" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_11oyzq8_di" bpmnElement="Activity_11oyzq8">
+        <dc:Bounds x="1560" y="140" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1qzhd1o_di" bpmnElement="Activity_0asklzb">
+        <dc:Bounds x="1740" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0bukylp_di" bpmnElement="Flow_0bukylp">
         <di:waypoint x="1180" y="795" />
         <di:waypoint x="1180" y="180" />
@@ -594,11 +594,11 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0tcx83v_di" bpmnElement="Flow_0tcx83v">
         <di:waypoint x="1460" y="180" />
-        <di:waypoint x="1580" y="180" />
+        <di:waypoint x="1560" y="180" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_12pgdjp_di" bpmnElement="Flow_12pgdjp">
-        <di:waypoint x="1680" y="180" />
-        <di:waypoint x="1760" y="180" />
+        <di:waypoint x="1660" y="180" />
+        <di:waypoint x="1740" y="180" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_12yvzbq_di" bpmnElement="Flow_12yvzbq">
         <di:waypoint x="1600" y="425" />
@@ -787,7 +787,7 @@
         <di:waypoint x="2132" y="180" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1yjnuem_di" bpmnElement="Flow_1yjnuem">
-        <di:waypoint x="1860" y="180" />
+        <di:waypoint x="1840" y="180" />
         <di:waypoint x="1920" y="180" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1khsbc1_di" bpmnElement="Flow_1khsbc1">
