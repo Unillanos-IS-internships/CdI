@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.28.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:collaboration id="Collaboration_1cdht4h">
     <bpmn:participant id="Participant_1dugm63" name="Solicitud de inscripción por parte de los programas" processRef="Process_1tftgnu" />
-    <bpmn:participant id="Participant_066q9a4" name="Direcciones de Programa Unillanos" processRef="Process_1n3gnet" />
+    <bpmn:participant id="Participant_066q9a4" name="Dirección de Programa Unillanos" processRef="Process_1n3gnet" />
     <bpmn:messageFlow id="Flow_00xshqp" sourceRef="Participant_066q9a4" targetRef="StartEvent_1" />
     <bpmn:messageFlow id="Flow_17po4ek" sourceRef="Activity_0ug8dmx" targetRef="Participant_066q9a4" />
     <bpmn:messageFlow id="Flow_1s3szfs" sourceRef="Activity_0t77xk5" targetRef="Participant_066q9a4" />
