@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.28.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:collaboration id="Collaboration_1cdht4h">
     <bpmn:participant id="Participant_1dugm63" name="Trazabilidad estudiante" processRef="Process_1tftgnu" />
     <bpmn:textAnnotation id="TextAnnotation_1jszobr">
@@ -22,6 +22,8 @@
     <bpmn:endEvent id="Event_0582j3v" name="Trazabilidad realizada">
       <bpmn:incoming>Flow_0s3ikj1</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1clgpyt" sourceRef="StartEvent_1" targetRef="Activity_0z5junf" />
+    <bpmn:sequenceFlow id="Flow_0s3ikj1" sourceRef="Activity_0z5junf" targetRef="Event_0582j3v" />
     <bpmn:subProcess id="Activity_0z5junf">
       <bpmn:incoming>Flow_1clgpyt</bpmn:incoming>
       <bpmn:outgoing>Flow_0s3ikj1</bpmn:outgoing>
@@ -159,8 +161,6 @@
         <bpmn:outgoing>Flow_0vy0cob</bpmn:outgoing>
       </bpmn:callActivity>
     </bpmn:subProcess>
-    <bpmn:sequenceFlow id="Flow_1clgpyt" sourceRef="StartEvent_1" targetRef="Activity_0z5junf" />
-    <bpmn:sequenceFlow id="Flow_0s3ikj1" sourceRef="Activity_0z5junf" targetRef="Event_0582j3v" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cdht4h">
@@ -362,22 +362,9 @@
         <di:waypoint x="2040" y="615" />
         <di:waypoint x="2040" y="520" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_09atzlu_di" bpmnElement="Flow_09atzlu">
-        <di:waypoint x="1970" y="375" />
-        <di:waypoint x="2040" y="375" />
-        <di:waypoint x="2040" y="470" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_153zcq0_di" bpmnElement="Flow_153zcq0">
         <di:waypoint x="2065" y="495" />
         <di:waypoint x="2140" y="495" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0pyrob1_di" bpmnElement="Flow_0pyrob1">
-        <di:waypoint x="2370" y="470" />
-        <di:waypoint x="2370" y="375" />
-        <di:waypoint x="2440" y="375" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="2380" y="418" width="11" height="14" />
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0drsobn_di" bpmnElement="Flow_0drsobn">
         <di:waypoint x="2540" y="375" />
@@ -419,9 +406,10 @@
         <di:waypoint x="466" y="495" />
         <di:waypoint x="510" y="495" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_04vbwop_di" bpmnElement="Flow_04vbwop">
-        <di:waypoint x="2628" y="485" />
-        <di:waypoint x="2732" y="485" />
+      <bpmndi:BPMNEdge id="Flow_09atzlu_di" bpmnElement="Flow_09atzlu">
+        <di:waypoint x="1970" y="375" />
+        <di:waypoint x="2040" y="375" />
+        <di:waypoint x="2040" y="470" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1p0vw3p_di" bpmnElement="Flow_1p0vw3p">
         <di:waypoint x="1800" y="375" />
@@ -430,6 +418,18 @@
       <bpmndi:BPMNEdge id="Flow_1umx8wp_di" bpmnElement="Flow_1umx8wp">
         <di:waypoint x="2240" y="495" />
         <di:waypoint x="2345" y="495" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0pyrob1_di" bpmnElement="Flow_0pyrob1">
+        <di:waypoint x="2370" y="470" />
+        <di:waypoint x="2370" y="375" />
+        <di:waypoint x="2440" y="375" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2380" y="418" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04vbwop_di" bpmnElement="Flow_04vbwop">
+        <di:waypoint x="2628" y="485" />
+        <di:waypoint x="2732" y="485" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0xqv9nr_di" bpmnElement="Flow_0xqv9nr">
         <di:waypoint x="2370" y="520" />
@@ -444,10 +444,6 @@
         <di:waypoint x="2603" y="615" />
         <di:waypoint x="2603" y="510" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_17hv715_di" bpmnElement="Association_17hv715">
-        <di:waypoint x="1680" y="838" />
-        <di:waypoint x="2160" y="877" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1clgpyt_di" bpmnElement="Flow_1clgpyt">
         <di:waypoint x="318" y="495" />
         <di:waypoint x="400" y="495" />
@@ -457,9 +453,13 @@
         <di:waypoint x="3042" y="495" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_1jszobr_di" bpmnElement="TextAnnotation_1jszobr">
-        <dc:Bounds x="2160" y="860" width="160" height="30" />
+        <dc:Bounds x="2160" y="860" width="159.9881669535284" height="29.999462134251292" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_17hv715_di" bpmnElement="Association_17hv715">
+        <di:waypoint x="1680" y="838" />
+        <di:waypoint x="2160" y="877" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

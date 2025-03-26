@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0i4blqy" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.28.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0i4blqy" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:collaboration id="Collaboration_0po8z8f">
-    <bpmn:participant id="Participant_072i3kr" name="Cambios de horario módulos" processRef="Process_0p2m4tw" />
+    <bpmn:participant id="Participant_072i3kr" name="Cambios de horario módulos" processRef="Process_0p2m4tw">
+      <bpmn:participantMultiplicity />
+    </bpmn:participant>
     <bpmn:participant id="Participant_03c60y7" name="Estudiante" processRef="Process_13p5cin" />
     <bpmn:messageFlow id="Flow_0en2dmw" sourceRef="Participant_03c60y7" targetRef="Event_0y4aycr" />
     <bpmn:messageFlow id="Flow_1cy9j9e" sourceRef="Activity_0ad5ign" targetRef="Participant_03c60y7" />
@@ -9,10 +11,6 @@
     <bpmn:textAnnotation id="TextAnnotation_0kethij">
       <bpmn:text>Informando que si no continua inscripción, debe solicitar cancelación.</bpmn:text>
     </bpmn:textAnnotation>
-    <bpmn:textAnnotation id="TextAnnotation_0myuvz7">
-      <bpmn:text>Falta modelar los casos que siguen: Que sí me sirve un horario de los propuestos o que NO me sirve ninguno</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:association id="Association_10qu2vn" associationDirection="None" sourceRef="TextAnnotation_0myuvz7" targetRef="Flow_12vbpiy" />
     <bpmn:textAnnotation id="TextAnnotation_0klc9v3">
       <bpmn:text>Informando que si no continua inscripción, debe solicitar cancelación.</bpmn:text>
     </bpmn:textAnnotation>
@@ -22,7 +20,6 @@
     <bpmn:laneSet id="LaneSet_1ceampm">
       <bpmn:lane id="Lane_0pktkss" name="Coordinador del Plan BULL">
         <bpmn:flowNodeRef>Event_0y4aycr</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0hjthid</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1ev5oro</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0xbsr1b</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1y3w48l</bpmn:flowNodeRef>
@@ -41,14 +38,13 @@
         <bpmn:flowNodeRef>Event_06jg60v</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_07264vr</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1bcg9rk</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0hjthid</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:sequenceFlow id="Flow_0nfbydk" name="NO" sourceRef="Gateway_1ev5oro" targetRef="Activity_0xbsr1b" />
     <bpmn:sequenceFlow id="Flow_0ejotlb" sourceRef="Activity_0xbsr1b" targetRef="Gateway_1y3w48l" />
     <bpmn:sequenceFlow id="Flow_11bqgin" name="SI" sourceRef="Gateway_1ev5oro" targetRef="Gateway_1ob2f8l" />
     <bpmn:sequenceFlow id="Flow_1w1esuw" sourceRef="Gateway_0l2frld" targetRef="Gateway_1ob2f8l" />
-    <bpmn:sequenceFlow id="Flow_0pdzkdb" sourceRef="Event_0y4aycr" targetRef="Activity_0hjthid" />
-    <bpmn:sequenceFlow id="Flow_0gmzgd1" sourceRef="Activity_0hjthid" targetRef="Gateway_1ev5oro" />
     <bpmn:sequenceFlow id="Flow_0gneeem" sourceRef="Gateway_1ob2f8l" targetRef="Activity_00svlw7" />
     <bpmn:sequenceFlow id="Flow_06zguy6" name="NO" sourceRef="Gateway_1y3w48l" targetRef="Activity_17es3a7" />
     <bpmn:sequenceFlow id="Flow_1nuumbe" name="SI" sourceRef="Gateway_1y3w48l" targetRef="Activity_0dnv34c" />
@@ -61,17 +57,13 @@
     <bpmn:sequenceFlow id="Flow_10n1d6v" sourceRef="Activity_0ad5ign" targetRef="Event_0jm6yw5" />
     <bpmn:sequenceFlow id="Flow_0aldkc6" sourceRef="Activity_00svlw7" targetRef="Activity_07qsjgk" />
     <bpmn:sequenceFlow id="Flow_19sq8mf" sourceRef="Activity_07qsjgk" targetRef="Activity_0ad5ign" />
-    <bpmn:sequenceFlow id="Flow_1n0i4de" sourceRef="Gateway_0ig4gn1" targetRef="Event_07264vr" />
+    <bpmn:sequenceFlow id="Flow_1n0i4de" name="NO" sourceRef="Gateway_0ig4gn1" targetRef="Event_07264vr" />
     <bpmn:sequenceFlow id="Flow_0d2ssz9" sourceRef="Gateway_14jo0ar" targetRef="Event_06jg60v" />
     <bpmn:intermediateCatchEvent id="Event_0y4aycr" name="Solicitud cambio recibida">
       <bpmn:outgoing>Flow_0pdzkdb</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_13t3erg" />
     </bpmn:intermediateCatchEvent>
-    <bpmn:task id="Activity_0hjthid" name="Revisar disponibilidad">
-      <bpmn:incoming>Flow_0pdzkdb</bpmn:incoming>
-      <bpmn:outgoing>Flow_0gmzgd1</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:exclusiveGateway id="Gateway_1ev5oro" name="¿cupo disponible?">
+    <bpmn:exclusiveGateway id="Gateway_1ev5oro" name="¿Cupo disponible?">
       <bpmn:incoming>Flow_0gmzgd1</bpmn:incoming>
       <bpmn:outgoing>Flow_11bqgin</bpmn:outgoing>
       <bpmn:outgoing>Flow_0nfbydk</bpmn:outgoing>
@@ -147,6 +139,12 @@
       <bpmn:outgoing>Flow_0of1euu</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_1h0k8nk" />
     </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_0gmzgd1" sourceRef="Activity_0hjthid" targetRef="Gateway_1ev5oro" />
+    <bpmn:sequenceFlow id="Flow_0pdzkdb" sourceRef="Event_0y4aycr" targetRef="Activity_0hjthid" />
+    <bpmn:task id="Activity_0hjthid" name="Revisar disponibilidad">
+      <bpmn:incoming>Flow_0pdzkdb</bpmn:incoming>
+      <bpmn:outgoing>Flow_0gmzgd1</bpmn:outgoing>
+    </bpmn:task>
     <bpmn:association id="Association_17lcl0j" associationDirection="None" sourceRef="Event_07264vr" targetRef="TextAnnotation_0kethij" />
   </bpmn:process>
   <bpmn:process id="Process_13p5cin" isExecutable="false" />
@@ -173,7 +171,7 @@
       <bpmndi:BPMNShape id="Gateway_1ev5oro_di" bpmnElement="Gateway_1ev5oro" isMarkerVisible="true">
         <dc:Bounds x="545" y="435" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="525" y="411" width="90" height="14" />
+          <dc:Bounds x="542" y="406" width="56" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0xbsr1b_di" bpmnElement="Activity_0xbsr1b">
@@ -252,10 +250,6 @@
           <dc:Bounds x="1184" y="575" width="52" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_17lcl0j_di" bpmnElement="Association_17lcl0j">
-        <di:waypoint x="1193" y="545" />
-        <di:waypoint x="1134" y="530" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_1qlz0vp_di" bpmnElement="Event_1bcg9rk">
         <dc:Bounds x="1002" y="792" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -363,19 +357,30 @@
         <di:waypoint x="1140" y="605" />
         <di:waypoint x="1140" y="550" />
         <di:waypoint x="1192" y="550" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1121" y="593" width="17" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0d2ssz9_di" bpmnElement="Flow_0d2ssz9">
         <di:waypoint x="1435" y="770" />
         <di:waypoint x="1495" y="770" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_17lcl0j_di" bpmnElement="Association_17lcl0j">
+        <di:waypoint x="1193" y="545" />
+        <di:waypoint x="1134" y="530" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_03c60y7_di" bpmnElement="Participant_03c60y7" isHorizontal="true">
         <dc:Bounds x="160" y="100" width="2070" height="160" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_10qu2vn_di" bpmnElement="Association_10qu2vn">
-        <di:waypoint x="1541" y="890" />
-        <di:waypoint x="1335" y="770" />
-      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0kethij_di" bpmnElement="TextAnnotation_0kethij">
+        <dc:Bounds x="990" y="490" width="244.9814439946019" height="39.979757085020246" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0klc9v3_di" bpmnElement="TextAnnotation_0klc9v3">
+        <dc:Bounds x="1610" y="720" width="240" height="34" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1vmqt9f_di" bpmnElement="Association_1vmqt9f">
         <di:waypoint x="1530" y="765" />
         <di:waypoint x="1610" y="741" />
@@ -392,18 +397,6 @@
         <di:waypoint x="1270" y="260" />
         <di:waypoint x="1270" y="730" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_0kethij_di" bpmnElement="TextAnnotation_0kethij">
-        <dc:Bounds x="990" y="490" width="244.9814439946019" height="39.979757085020246" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0wtw43l" bpmnElement="TextAnnotation_0myuvz7">
-        <dc:Bounds x="1390" y="890" width="370" height="40" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0klc9v3_di" bpmnElement="TextAnnotation_0klc9v3">
-        <dc:Bounds x="1610" y="720" width="240" height="34" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
