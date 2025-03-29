@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:collaboration id="Collaboration_0hn4asr">
-    <bpmn:participant id="Participant_0wa9zjb" name="Entrega de resultados de exámenes de clasificación" processRef="Process_0d9o5r4" />
+    <bpmn:participant id="Participant_0wa9zjb" name="Entrega de resultados de pruebas diagnosticas" processRef="Process_0d9o5r4" />
   </bpmn:collaboration>
   <bpmn:process id="Process_0d9o5r4" isExecutable="true">
     <bpmn:laneSet id="LaneSet_052575o">
@@ -40,7 +40,7 @@
       <bpmn:incoming>Flow_1i8gk77</bpmn:incoming>
       <bpmn:outgoing>Flow_1uqkvh6</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:startEvent id="StartEvent_1" name="Culminación de  presentación de exámenes de clasificación">
+    <bpmn:startEvent id="StartEvent_1" name="Culminación de  presentación de pruebas diagnosticas">
       <bpmn:outgoing>Flow_1i8gk77</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_1h3mys5" />
     </bpmn:startEvent>
@@ -48,7 +48,7 @@
       <bpmn:incoming>Flow_1uqkvh6</bpmn:incoming>
       <bpmn:outgoing>Flow_1othuhw</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:endEvent id="Event_06j21p7" name="Resultados exámenes de clasificación enviados">
+    <bpmn:endEvent id="Event_06j21p7" name="Resultados pruebas diagnosticas enviados">
       <bpmn:incoming>Flow_09tflr9</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0lzwpwl" sourceRef="Gateway_17vs0p6" targetRef="Activity_05hqav8" />
@@ -100,7 +100,7 @@
       <bpmndi:BPMNShape id="BPMNShape_0fcbbzz" bpmnElement="Event_06j21p7">
         <dc:Bounds x="1102" y="152" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1087" y="195" width="67" height="53" />
+          <dc:Bounds x="1090" y="195" width="62" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="BPMNEdge_1pc1zw9" bpmnElement="Flow_0lzwpwl">
@@ -123,6 +123,10 @@
         <di:waypoint x="1020" y="110" />
         <di:waypoint x="940" y="110" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09tflr9_di" bpmnElement="Flow_09tflr9">
+        <di:waypoint x="1045" y="170" />
+        <di:waypoint x="1102" y="170" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1othuhw_di" bpmnElement="Flow_1othuhw">
         <di:waypoint x="660" y="170" />
         <di:waypoint x="725" y="170" />
@@ -134,10 +138,6 @@
       <bpmndi:BPMNEdge id="Flow_1uqkvh6_di" bpmnElement="Flow_1uqkvh6">
         <di:waypoint x="490" y="170" />
         <di:waypoint x="560" y="170" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_09tflr9_di" bpmnElement="Flow_09tflr9">
-        <di:waypoint x="1045" y="170" />
-        <di:waypoint x="1102" y="170" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
