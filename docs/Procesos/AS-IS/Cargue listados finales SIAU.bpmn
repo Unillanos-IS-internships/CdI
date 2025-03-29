@@ -1,98 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:collaboration id="Collaboration_1cdht4h">
     <bpmn:participant id="Participant_1dugm63" name="Cargue listados finales SIAU" processRef="Process_1tftgnu" />
+    <bpmn:textAnnotation id="TextAnnotation_0a7mhtm">
+      <bpmn:text>Módulos, horarios, inscritos, etc.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0ha9mwe" associationDirection="None" sourceRef="Activity_0z7pdz6" targetRef="TextAnnotation_0a7mhtm" />
   </bpmn:collaboration>
   <bpmn:process id="Process_1tftgnu" isExecutable="true">
     <bpmn:laneSet id="LaneSet_0yjby9h">
       <bpmn:lane id="Lane_1r167b6" name="Coordinador del Plan BULL">
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_031nvh3</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0z7pdz6</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_0xchgkb" name="Técnico de apoyo">
-        <bpmn:flowNodeRef>Activity_02kyzch</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_031nvh3</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0z7pdz6</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_04hcr1n</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:startEvent id="StartEvent_1" name="Cargue listados finales SIAU">
+    <bpmn:sequenceFlow id="Flow_1bz3usc" sourceRef="StartEvent_1" targetRef="Activity_031nvh3" />
+    <bpmn:sequenceFlow id="Flow_0o2p0i4" sourceRef="Activity_031nvh3" targetRef="Activity_0z7pdz6" />
+    <bpmn:sequenceFlow id="Flow_0a24xr5" sourceRef="Activity_0z7pdz6" targetRef="Event_04hcr1n" />
+    <bpmn:startEvent id="StartEvent_1" name="Decisión de cargue de listados al SIAU tomada">
       <bpmn:outgoing>Flow_1bz3usc</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="Flow_1bz3usc" sourceRef="StartEvent_1" targetRef="Activity_031nvh3" />
-    <bpmn:task id="Activity_031nvh3" name="Asignar docentes a módulos">
+    <bpmn:task id="Activity_031nvh3" name="Ingresar docentes módulos-horarios al SIAU">
       <bpmn:incoming>Flow_1bz3usc</bpmn:incoming>
       <bpmn:outgoing>Flow_0o2p0i4</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_0z7pdz6" name="Modificar consolidado de inscripción">
+    <bpmn:task id="Activity_0z7pdz6" name="Ajustar BD BULL en el SIAU">
       <bpmn:incoming>Flow_0o2p0i4</bpmn:incoming>
       <bpmn:outgoing>Flow_0a24xr5</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_0o2p0i4" sourceRef="Activity_031nvh3" targetRef="Activity_0z7pdz6" />
-    <bpmn:sequenceFlow id="Flow_0a24xr5" sourceRef="Activity_0z7pdz6" targetRef="Activity_02kyzch" />
-    <bpmn:task id="Activity_02kyzch" name="Realzar cambios manuales en BD de SIAU">
-      <bpmn:incoming>Flow_0a24xr5</bpmn:incoming>
-      <bpmn:outgoing>Flow_1r8wgub</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_1r8wgub" name="Proceso culminado" sourceRef="Activity_02kyzch" targetRef="Event_04hcr1n" />
     <bpmn:endEvent id="Event_04hcr1n">
-      <bpmn:incoming>Flow_1r8wgub</bpmn:incoming>
+      <bpmn:incoming>Flow_0a24xr5</bpmn:incoming>
     </bpmn:endEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cdht4h">
       <bpmndi:BPMNShape id="Participant_1dugm63_di" bpmnElement="Participant_1dugm63" isHorizontal="true">
-        <dc:Bounds x="124" y="80" width="766" height="300" />
+        <dc:Bounds x="124" y="80" width="756" height="350" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_0xchgkb_di" bpmnElement="Lane_0xchgkb" isHorizontal="true">
-        <dc:Bounds x="154" y="240" width="736" height="140" />
+        <dc:Bounds x="154" y="240" width="726" height="190" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_1r167b6_di" bpmnElement="Lane_1r167b6" isHorizontal="true">
-        <dc:Bounds x="154" y="80" width="736" height="160" />
+        <dc:Bounds x="154" y="80" width="726" height="160" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_1asfrtv_di" bpmnElement="StartEvent_1">
-        <dc:Bounds x="232" y="122" width="36" height="36" />
+      <bpmndi:BPMNShape id="Event_0qf1s8b_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="212" y="132" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="212" y="166" width="77" height="27" />
+          <dc:Bounds x="192" y="176" width="78" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_031nvh3_di" bpmnElement="Activity_031nvh3">
-        <dc:Bounds x="340" y="100" width="100" height="80" />
+        <dc:Bounds x="370" y="300" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0z7pdz6_di" bpmnElement="Activity_0z7pdz6">
-        <dc:Bounds x="520" y="100" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_02kyzch_di" bpmnElement="Activity_02kyzch">
-        <dc:Bounds x="650" y="270" width="100" height="80" />
+        <dc:Bounds x="550" y="300" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_04hcr1n_di" bpmnElement="Event_04hcr1n">
-        <dc:Bounds x="822" y="292" width="36" height="36" />
+        <dc:Bounds x="782" y="322" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1bz3usc_di" bpmnElement="Flow_1bz3usc">
-        <di:waypoint x="268" y="140" />
-        <di:waypoint x="340" y="140" />
+        <di:waypoint x="248" y="150" />
+        <di:waypoint x="304" y="150" />
+        <di:waypoint x="304" y="340" />
+        <di:waypoint x="370" y="340" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0o2p0i4_di" bpmnElement="Flow_0o2p0i4">
-        <di:waypoint x="440" y="140" />
-        <di:waypoint x="520" y="140" />
+        <di:waypoint x="470" y="340" />
+        <di:waypoint x="550" y="340" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0a24xr5_di" bpmnElement="Flow_0a24xr5">
-        <di:waypoint x="620" y="140" />
-        <di:waypoint x="700" y="140" />
-        <di:waypoint x="700" y="270" />
+        <di:waypoint x="650" y="340" />
+        <di:waypoint x="782" y="340" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1r8wgub_di" bpmnElement="Flow_1r8wgub">
-        <di:waypoint x="750" y="310" />
-        <di:waypoint x="822" y="310" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="814" y="336" width="51" height="27" />
-        </bpmndi:BPMNLabel>
+      <bpmndi:BPMNEdge id="Association_0ha9mwe_di" bpmnElement="Association_0ha9mwe">
+        <di:waypoint x="649" y="307" />
+        <di:waypoint x="673" y="290" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0a7mhtm_di" bpmnElement="TextAnnotation_0a7mhtm">
+        <dc:Bounds x="660" y="250" width="130" height="40" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
