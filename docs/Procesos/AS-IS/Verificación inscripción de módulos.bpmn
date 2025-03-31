@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:collaboration id="Collaboration_1ws8p47">
     <bpmn:participant id="Participant_03c60y7" name="Estudiante" processRef="Process_13p5cin" />
     <bpmn:participant id="Participant_1dugm63" name="Verificación inscripción de módulo" processRef="Process_1sfpmu5" />
@@ -186,7 +186,7 @@
         <bpmn:messageEventDefinition id="MessageEventDefinition_0n1r0d2" />
       </bpmn:endEvent>
       <bpmn:sequenceFlow id="Flow_1l3az5a" name="NO" sourceRef="Gateway_0x39x6v" targetRef="Event_09klgit" />
-      <bpmn:sequenceFlow id="Flow_1tn43m1" sourceRef="Gateway_0x39x6v" targetRef="Gateway_0l2frld" />
+      <bpmn:sequenceFlow id="Flow_1tn43m1" name="SI" sourceRef="Gateway_0x39x6v" targetRef="Gateway_0l2frld" />
     </bpmn:subProcess>
     <bpmn:sequenceFlow id="Flow_08lji2d" sourceRef="Event_1gv2ny2" targetRef="Activity_02j7cdi" />
     <bpmn:sequenceFlow id="Flow_140q5f1" sourceRef="Activity_02j7cdi" targetRef="Event_0582j3v" />
@@ -214,12 +214,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1ldn001_di" bpmnElement="Activity_02j7cdi" isExpanded="true">
         <dc:Bounds x="360" y="360" width="2622" height="610" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_19b5uft_di" bpmnElement="Event_19b5uft">
-        <dc:Bounds x="842" y="552" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="884" y="556" width="52" height="27" />
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0klrvru_di" bpmnElement="Activity_0klrvru">
         <dc:Bounds x="1980" y="850" width="100" height="80" />
@@ -352,6 +346,12 @@
           <dc:Bounds x="2154" y="700" width="52" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_19b5uft_di" bpmnElement="Event_19b5uft">
+        <dc:Bounds x="752" y="502" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="794" y="506" width="52" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1dg3qz2_di" bpmnElement="Event_1bcg9rk">
         <dc:Bounds x="1692" y="782" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -360,10 +360,10 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_084ya5i_di" bpmnElement="Flow_084ya5i">
         <di:waypoint x="710" y="645" />
-        <di:waypoint x="710" y="570" />
-        <di:waypoint x="842" y="570" />
+        <di:waypoint x="710" y="520" />
+        <di:waypoint x="752" y="520" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="724" y="630" width="11" height="14" />
+          <dc:Bounds x="724" y="625" width="11" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1795pzx_di" bpmnElement="Flow_1795pzx">
@@ -533,6 +533,9 @@
         <di:waypoint x="2055" y="760" />
         <di:waypoint x="2290" y="760" />
         <di:waypoint x="2290" y="695" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2167" y="742" width="11" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Event_1ieesre_di" bpmnElement="Event_1gv2ny2">
         <dc:Bounds x="242" y="782" width="36" height="36" />
