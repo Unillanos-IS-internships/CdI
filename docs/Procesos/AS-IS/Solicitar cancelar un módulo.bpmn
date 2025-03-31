@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1lz57gu" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.28.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1lz57gu" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:collaboration id="Collaboration_1jx3gp8">
     <bpmn:participant id="Participant_15efhqq" name="Cancelación de módulos" processRef="Process_0bi8trj" />
     <bpmn:participant id="Participant_0o02ccb" processRef="Process_1pl0mzd" />
@@ -50,12 +50,12 @@
         <dc:Bounds x="160" y="290" width="920" height="340" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0bwgy0x" bpmnElement="Lane_032utao" isHorizontal="true">
-        <dc:Bounds x="190" y="290" width="890" height="220" />
+      <bpmndi:BPMNShape id="Lane_1czgb8d_di" bpmnElement="Lane_1czgb8d" isHorizontal="true">
+        <dc:Bounds x="190" y="480" width="890" height="150" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_1czgb8d_di" bpmnElement="Lane_1czgb8d" isHorizontal="true">
-        <dc:Bounds x="190" y="510" width="890" height="120" />
+      <bpmndi:BPMNShape id="BPMNShape_0bwgy0x" bpmnElement="Lane_032utao" isHorizontal="true">
+        <dc:Bounds x="190" y="290" width="890" height="190" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_10zdb9z_di" bpmnElement="Event_1iu58iz">
