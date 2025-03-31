@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.28.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+  <bpmn:collaboration id="Collaboration_1cdht4h">
+    <bpmn:participant id="Participant_1dugm63" name="Validar trazabilidad de todos los inscritos" processRef="Process_1tftgnu" />
+    <bpmn:textAnnotation id="TextAnnotation_1jszobr">
+      <bpmn:text>Total estudiantes inscritos</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_17hv715" associationDirection="None" sourceRef="Activity_0z5junf" targetRef="TextAnnotation_1jszobr" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1tftgnu" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_0yjby9h">
+      <bpmn:lane id="Lane_08a5brh" name="Coordinador del Plan BULL">
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0z5junf</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_0582j3v</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="StartEvent_1" name="Inicio tiempo de trazabilidad de estudiantes">
+      <bpmn:outgoing>Flow_1clgpyt</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0rziaeu" />
+    </bpmn:startEvent>
+    <bpmn:callActivity id="Activity_0z5junf" name="Validar trazabilidad de un estudiante" calledElement="Tra1Est">
+      <bpmn:incoming>Flow_1clgpyt</bpmn:incoming>
+      <bpmn:outgoing>Flow_1cff7yf</bpmn:outgoing>
+      <bpmn:multiInstanceLoopCharacteristics isSequential="true" />
+    </bpmn:callActivity>
+    <bpmn:sequenceFlow id="Flow_1clgpyt" sourceRef="StartEvent_1" targetRef="Activity_0z5junf" />
+    <bpmn:sequenceFlow id="Flow_1cff7yf" sourceRef="Activity_0z5junf" targetRef="Event_0582j3v" />
+    <bpmn:endEvent id="Event_0582j3v" name="Trazabilidad realizada">
+      <bpmn:incoming>Flow_1cff7yf</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cdht4h">
+      <bpmndi:BPMNShape id="Participant_1dugm63_di" bpmnElement="Participant_1dugm63" isHorizontal="true">
+        <dc:Bounds x="160" y="40" width="520" height="235" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_08a5brh_di" bpmnElement="Lane_08a5brh" isHorizontal="true">
+        <dc:Bounds x="190" y="40" width="490" height="235" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1seb5w5_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="242" y="127" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="221" y="170" width="78" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_064ppxd_di" bpmnElement="Activity_0z5junf">
+        <dc:Bounds x="380" y="105" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0582j3v_di" bpmnElement="Event_0582j3v">
+        <dc:Bounds x="582" y="127" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="571" y="170" width="59" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1clgpyt_di" bpmnElement="Flow_1clgpyt">
+        <di:waypoint x="278" y="145" />
+        <di:waypoint x="380" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cff7yf_di" bpmnElement="Flow_1cff7yf">
+        <di:waypoint x="480" y="145" />
+        <di:waypoint x="582" y="145" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_17hv715_di" bpmnElement="Association_17hv715">
+        <di:waypoint x="451" y="185" />
+        <di:waypoint x="479" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1jszobr_di" bpmnElement="TextAnnotation_1jszobr">
+        <dc:Bounds x="420" y="210" width="160" height="30" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
