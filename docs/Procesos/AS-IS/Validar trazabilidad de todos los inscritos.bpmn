@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.28.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:collaboration id="Collaboration_1cdht4h">
     <bpmn:participant id="Participant_1dugm63" name="Validar trazabilidad de todos los inscritos" processRef="Process_1tftgnu" />
     <bpmn:textAnnotation id="TextAnnotation_1jszobr">
@@ -19,7 +19,8 @@
       <bpmn:outgoing>Flow_1clgpyt</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_0rziaeu" />
     </bpmn:startEvent>
-    <bpmn:callActivity id="Activity_0z5junf" name="Validar trazabilidad de un estudiante" calledElement="Tra1Est">
+    <bpmn:callActivity id="Activity_0z5junf" name="Validar trazabilidad de un estudiante" calledElement="ValTra1Est">
+      <bpmn:extensionElements />
       <bpmn:incoming>Flow_1clgpyt</bpmn:incoming>
       <bpmn:outgoing>Flow_1cff7yf</bpmn:outgoing>
       <bpmn:multiInstanceLoopCharacteristics isSequential="true" />
@@ -64,14 +65,14 @@
         <di:waypoint x="480" y="145" />
         <di:waypoint x="582" y="145" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_17hv715_di" bpmnElement="Association_17hv715">
-        <di:waypoint x="451" y="185" />
-        <di:waypoint x="479" y="210" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="TextAnnotation_1jszobr_di" bpmnElement="TextAnnotation_1jszobr">
         <dc:Bounds x="420" y="210" width="160" height="30" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_17hv715_di" bpmnElement="Association_17hv715">
+        <di:waypoint x="451" y="185" />
+        <di:waypoint x="479" y="210" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
