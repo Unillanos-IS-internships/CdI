@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:collaboration id="homologarModulos">
     <bpmn:participant id="Participant_1dugm63" name="Homologación de módulos" processRef="Process_1q089qg" />
+    <bpmn:textAnnotation id="TextAnnotation_02gl5jl">
+      <bpmn:text>total solicitudes homologación</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_054eyr5" associationDirection="None" sourceRef="Activity_1bsoday" targetRef="TextAnnotation_02gl5jl" />
   </bpmn:collaboration>
   <bpmn:process id="Process_1q089qg" isExecutable="true">
     <bpmn:laneSet id="LaneSet_0xr12vg">
@@ -60,6 +64,14 @@
         <di:waypoint x="540" y="180" />
         <di:waypoint x="662" y="180" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_054eyr5_di" bpmnElement="Association_054eyr5">
+        <di:waypoint x="470" y="220" />
+        <di:waypoint x="510" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_02gl5jl_di" bpmnElement="TextAnnotation_02gl5jl">
+        <dc:Bounds x="470" y="240" width="190" height="30" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
