@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1lz57gu" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1lz57gu" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:collaboration id="Collaboration_0zgje4t">
     <bpmn:participant id="Participant_0wa9zjb" name="Inscripción modulos" processRef="Process_0pqly96" />
     <bpmn:participant id="Participant_03c60y7" name="Sistemas" processRef="Process_13p5cin" />
@@ -9,18 +9,18 @@
     <bpmn:laneSet id="LaneSet_13g4x63">
       <bpmn:lane id="Lane_1sdvtf0" name="Coordinador del Plan BULL">
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_09wjw61</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_07bctzo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_1lc0sku</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0b0d968</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_083vgso</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0fjmcyq</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_09wjw61</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_07bctzo</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0fis6o7</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_1lc0sku</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_0qyrlwr" name="Técnico de apoyo">
-        <bpmn:flowNodeRef>Activity_1mvn7g5</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_010a6pm</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0v5k2m9</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1mvn7g5</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_03oiff8</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1lew5hk</bpmn:flowNodeRef>
         <bpmn:childLaneSet id="LaneSet_0h5zg2t" />
@@ -29,10 +29,6 @@
     <bpmn:sequenceFlow id="Flow_1p0c442" sourceRef="Activity_0b0d968" targetRef="Activity_1mvn7g5" />
     <bpmn:sequenceFlow id="Flow_0i7185i" sourceRef="Gateway_07bctzo" targetRef="Activity_083vgso" />
     <bpmn:sequenceFlow id="Flow_0m83z28" sourceRef="Activity_083vgso" targetRef="Gateway_09wjw61" />
-    <bpmn:userTask id="Activity_1mvn7g5" name="Ingresar  información al SIAU">
-      <bpmn:incoming>Flow_1p0c442</bpmn:incoming>
-      <bpmn:outgoing>Flow_0eqflqx</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:task id="Activity_010a6pm" name="Solicitar apertura plataforma inscripciones">
       <bpmn:incoming>Flow_0eqflqx</bpmn:incoming>
       <bpmn:outgoing>Flow_0mz9b3i</bpmn:outgoing>
@@ -44,24 +40,10 @@
       <bpmn:outgoing>Flow_1i8gk77</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_1yyjpo9" />
     </bpmn:startEvent>
-    <bpmn:userTask id="Activity_0b0d968" name="Identificar grupos a abrir">
-      <bpmn:incoming>Flow_1i8gk77</bpmn:incoming>
-      <bpmn:outgoing>Flow_1p0c442</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_1i8gk77" sourceRef="StartEvent_1" targetRef="Activity_0b0d968" />
     <bpmn:sequenceFlow id="Flow_00m3j8i" sourceRef="Gateway_07bctzo" targetRef="Activity_0fjmcyq" />
     <bpmn:sequenceFlow id="Flow_06lz4ze" sourceRef="Gateway_09wjw61" targetRef="Activity_0fjmcyq" />
     <bpmn:sequenceFlow id="Flow_0epbrao" sourceRef="Event_0v5k2m9" targetRef="Activity_03oiff8" />
-    <bpmn:sendTask id="Activity_083vgso" name="Notificar a Estudiantes">
-      <bpmn:incoming>Flow_0i7185i</bpmn:incoming>
-      <bpmn:outgoing>Flow_0m83z28</bpmn:outgoing>
-      <bpmn:multiInstanceLoopCharacteristics />
-    </bpmn:sendTask>
-    <bpmn:sendTask id="Activity_0fjmcyq" name="Notificar a Programas">
-      <bpmn:incoming>Flow_00m3j8i</bpmn:incoming>
-      <bpmn:incoming>Flow_06lz4ze</bpmn:incoming>
-      <bpmn:multiInstanceLoopCharacteristics />
-    </bpmn:sendTask>
     <bpmn:parallelGateway id="Gateway_09wjw61">
       <bpmn:incoming>Flow_197r2th</bpmn:incoming>
       <bpmn:incoming>Flow_0m83z28</bpmn:incoming>
@@ -77,24 +59,42 @@
       <bpmn:outgoing>Flow_0epbrao</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_0rk6y97" />
     </bpmn:intermediateCatchEvent>
-    <bpmn:userTask id="Activity_03oiff8" name="Cerrar plataforma de inscripciones">
-      <bpmn:incoming>Flow_0epbrao</bpmn:incoming>
-      <bpmn:outgoing>Flow_15b5gyl</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:userTask id="Activity_1lew5hk" name="Descargar inscripciones a Excel">
-      <bpmn:incoming>Flow_15b5gyl</bpmn:incoming>
-      <bpmn:outgoing>Flow_0c469cl</bpmn:outgoing>
-    </bpmn:userTask>
-    <bpmn:userTask id="Activity_0fis6o7" name="Consolidar Información Recibida">
-      <bpmn:incoming>Flow_0c469cl</bpmn:incoming>
-      <bpmn:outgoing>Flow_0ndiobo</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_15b5gyl" sourceRef="Activity_03oiff8" targetRef="Activity_1lew5hk" />
     <bpmn:sequenceFlow id="Flow_0c469cl" sourceRef="Activity_1lew5hk" targetRef="Activity_0fis6o7" />
     <bpmn:sequenceFlow id="Flow_0ndiobo" sourceRef="Activity_0fis6o7" targetRef="Event_1lc0sku" />
     <bpmn:endEvent id="Event_1lc0sku" name="Inscripción realizada">
       <bpmn:incoming>Flow_0ndiobo</bpmn:incoming>
     </bpmn:endEvent>
+    <bpmn:task id="Activity_0b0d968" name="Identificar grupos a abrir">
+      <bpmn:incoming>Flow_1i8gk77</bpmn:incoming>
+      <bpmn:outgoing>Flow_1p0c442</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_1mvn7g5" name="Ingresar  información al SIAU">
+      <bpmn:incoming>Flow_1p0c442</bpmn:incoming>
+      <bpmn:outgoing>Flow_0eqflqx</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_083vgso" name="Notificar a Estudiantes">
+      <bpmn:incoming>Flow_0i7185i</bpmn:incoming>
+      <bpmn:outgoing>Flow_0m83z28</bpmn:outgoing>
+      <bpmn:multiInstanceLoopCharacteristics />
+    </bpmn:task>
+    <bpmn:task id="Activity_0fjmcyq" name="Notificar a Programas">
+      <bpmn:incoming>Flow_00m3j8i</bpmn:incoming>
+      <bpmn:incoming>Flow_06lz4ze</bpmn:incoming>
+      <bpmn:multiInstanceLoopCharacteristics />
+    </bpmn:task>
+    <bpmn:task id="Activity_03oiff8" name="Cerrar plataforma de inscripciones">
+      <bpmn:incoming>Flow_0epbrao</bpmn:incoming>
+      <bpmn:outgoing>Flow_15b5gyl</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_1lew5hk" name="Descargar inscripciones a Excel">
+      <bpmn:incoming>Flow_15b5gyl</bpmn:incoming>
+      <bpmn:outgoing>Flow_0c469cl</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_0fis6o7" name="Consolidar Información Recibida">
+      <bpmn:incoming>Flow_0c469cl</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ndiobo</bpmn:outgoing>
+    </bpmn:task>
   </bpmn:process>
   <bpmn:process id="Process_13p5cin" isExecutable="false" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -111,10 +111,6 @@
         <dc:Bounds x="190" y="80" width="2000" height="230" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0psu9u2_di" bpmnElement="Activity_1mvn7g5">
-        <dc:Bounds x="670" y="370" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_010a6pm_di" bpmnElement="Activity_010a6pm">
         <dc:Bounds x="820" y="370" width="100" height="80" />
         <bpmndi:BPMNLabel />
@@ -124,18 +120,6 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="301" y="225" width="60" height="40" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1lppmgj_di" bpmnElement="Activity_0b0d968">
-        <dc:Bounds x="400" y="160" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0sgqx2i_di" bpmnElement="Activity_083vgso">
-        <dc:Bounds x="1100" y="210" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1fvz6g8" bpmnElement="Activity_0fjmcyq">
-        <dc:Bounds x="1100" y="100" width="100" height="80" />
-        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0y8c9sm_di" bpmnElement="Gateway_09wjw61">
         <dc:Bounds x="1255" y="175" width="50" height="50" />
@@ -149,23 +133,32 @@
           <dc:Bounds x="1368" y="435" width="65" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1lriwo3_di" bpmnElement="Activity_03oiff8">
-        <dc:Bounds x="1520" y="370" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0nqk3cg_di" bpmnElement="Activity_1lew5hk">
-        <dc:Bounds x="1700" y="370" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1xi9z3u_di" bpmnElement="Activity_0fis6o7">
-        <dc:Bounds x="1900" y="160" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0keoqsa_di" bpmnElement="Event_1lc0sku">
         <dc:Bounds x="2112" y="182" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2104" y="225" width="53" height="27" />
         </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1do5ime_di" bpmnElement="Activity_0b0d968">
+        <dc:Bounds x="400" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_02z69l1_di" bpmnElement="Activity_1mvn7g5">
+        <dc:Bounds x="670" y="370" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1225cau_di" bpmnElement="Activity_083vgso">
+        <dc:Bounds x="1100" y="210" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1sz5p7n_di" bpmnElement="Activity_0fjmcyq">
+        <dc:Bounds x="1100" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0b6e3ry_di" bpmnElement="Activity_03oiff8">
+        <dc:Bounds x="1520" y="370" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0re3v5j_di" bpmnElement="Activity_1lew5hk">
+        <dc:Bounds x="1700" y="370" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10yt538_di" bpmnElement="Activity_0fis6o7">
+        <dc:Bounds x="1900" y="160" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1p0c442_di" bpmnElement="Flow_1p0c442">
         <di:waypoint x="500" y="200" />

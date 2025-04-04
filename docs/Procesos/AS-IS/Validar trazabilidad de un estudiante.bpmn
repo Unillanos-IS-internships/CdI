@@ -101,7 +101,7 @@
       <bpmn:incoming>Flow_0xqv9nr</bpmn:incoming>
       <bpmn:outgoing>Flow_0lul9z3</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:callActivity id="Activity_0asklzb" name="Ingresar homologación a consolidado" calledElement="homologarModulos">
+    <bpmn:callActivity id="Activity_0asklzb" name="Homologación de módulos para un estudiante" calledElement="HomMod1Est">
       <bpmn:incoming>Flow_07jqaa1</bpmn:incoming>
       <bpmn:outgoing>Flow_0vy0cob</bpmn:outgoing>
     </bpmn:callActivity>

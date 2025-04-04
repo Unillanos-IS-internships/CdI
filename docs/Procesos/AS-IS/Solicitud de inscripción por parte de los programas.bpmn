@@ -41,11 +41,6 @@
         <bpmn:flowNodeRef>Activity_0u4j9jp</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_1r167b6" name="Coordinador del Plan BULL">
-        <bpmn:flowNodeRef>Activity_0ug8dmx</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_16k7sa2</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_0tm906v</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0f7sw1i</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0d2rem1</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1apvzom</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_09vvhim</bpmn:flowNodeRef>
@@ -65,28 +60,13 @@
         <bpmn:flowNodeRef>Gateway_0u7i5g4</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_042wy9v</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0v5wjkq</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0f7sw1i</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0ug8dmx</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_16k7sa2</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_0tm906v</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:task id="Activity_0ug8dmx" name="Notificar a programa rechazo">
-      <bpmn:incoming>Flow_0jwjopw</bpmn:incoming>
-      <bpmn:outgoing>Flow_1tpcugn</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:endEvent id="Event_16k7sa2" name="Solicitud rechazada">
-      <bpmn:incoming>Flow_1tpcugn</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:exclusiveGateway id="Gateway_0tm906v" name="¿La solicitud fue recibida a tiempo?">
-      <bpmn:incoming>Flow_1rt1e8c</bpmn:incoming>
-      <bpmn:outgoing>Flow_0jwjopw</bpmn:outgoing>
-      <bpmn:outgoing>Flow_1jmttjs</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_0f7sw1i" name="Verificar si esta en periodo de inscripciones">
-      <bpmn:incoming>Flow_1ytlgty</bpmn:incoming>
-      <bpmn:outgoing>Flow_1rt1e8c</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:startEvent id="StartEvent_1" name="Solicitud recibida">
-      <bpmn:outgoing>Flow_1ytlgty</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_1u2ybi9" />
-    </bpmn:startEvent>
     <bpmn:task id="Activity_0d2rem1" name="Verificar si existe relación con alguna solicitud anterior">
       <bpmn:incoming>Flow_0p4kk1g</bpmn:incoming>
       <bpmn:outgoing>Flow_0msv6sm</bpmn:outgoing>
@@ -355,6 +335,26 @@
       <bpmn:sequenceFlow id="Flow_16ypaut" sourceRef="Activity_1sg6wmn" targetRef="Event_14b1tur" />
     </bpmn:subProcess>
     <bpmn:sequenceFlow id="Flow_1aboa4w" sourceRef="Activity_042wy9v" targetRef="Event_0eckfss" />
+    <bpmn:task id="Activity_0f7sw1i" name="Verificar si esta en periodo de inscripciones">
+      <bpmn:incoming>Flow_1ytlgty</bpmn:incoming>
+      <bpmn:outgoing>Flow_1rt1e8c</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_0ug8dmx" name="Notificar a programa rechazo">
+      <bpmn:incoming>Flow_0jwjopw</bpmn:incoming>
+      <bpmn:outgoing>Flow_1tpcugn</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_16k7sa2" name="Solicitud rechazada">
+      <bpmn:incoming>Flow_1tpcugn</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_0tm906v" name="¿La solicitud fue recibida a tiempo?">
+      <bpmn:incoming>Flow_1rt1e8c</bpmn:incoming>
+      <bpmn:outgoing>Flow_0jwjopw</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1jmttjs</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:startEvent id="StartEvent_1" name="Solicitud recibida">
+      <bpmn:outgoing>Flow_1ytlgty</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1u2ybi9" />
+    </bpmn:startEvent>
     <bpmn:textAnnotation id="TextAnnotation_03g9im7">
       <bpmn:text>Total de grupos</bpmn:text>
     </bpmn:textAnnotation>
@@ -379,32 +379,6 @@
         <dc:Bounds x="190" y="290" width="3430" height="180" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0ug8dmx_di" bpmnElement="Activity_0ug8dmx">
-        <dc:Bounds x="690" y="1150" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_16k7sa2_di" bpmnElement="Event_16k7sa2">
-        <dc:Bounds x="832" y="1172" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="824" y="1215" width="52" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_0tm906v_di" bpmnElement="Gateway_0tm906v" isMarkerVisible="true">
-        <dc:Bounds x="601" y="1285" width="50" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="525" y="1256" width="90" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0f7sw1i_di" bpmnElement="Activity_0f7sw1i">
-        <dc:Bounds x="406" y="1270" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0wuh7d9_di" bpmnElement="StartEvent_1">
-        <dc:Bounds x="283" y="1292" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="260" y="1335" width="84" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0d2rem1_di" bpmnElement="Activity_0d2rem1">
         <dc:Bounds x="1060" y="765" width="100" height="80" />
         <bpmndi:BPMNLabel />
@@ -423,6 +397,32 @@
         <dc:Bounds x="2932" y="1722" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="2921" y="1765" width="58" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0f7sw1i_di" bpmnElement="Activity_0f7sw1i">
+        <dc:Bounds x="406" y="1180" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ug8dmx_di" bpmnElement="Activity_0ug8dmx">
+        <dc:Bounds x="690" y="1060" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_16k7sa2_di" bpmnElement="Event_16k7sa2">
+        <dc:Bounds x="832" y="1082" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="824" y="1125" width="52" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0tm906v_di" bpmnElement="Gateway_0tm906v" isMarkerVisible="true">
+        <dc:Bounds x="595" y="1195" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="519" y="1166" width="90" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0wuh7d9_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="283" y="1202" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="260" y="1245" width="84" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_12gol4c" bpmnElement="Activity_0v8575x" isExpanded="true">
@@ -825,23 +825,22 @@
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0jwjopw_di" bpmnElement="Flow_0jwjopw">
-        <di:waypoint x="626" y="1285" />
-        <di:waypoint x="626" y="1190" />
-        <di:waypoint x="690" y="1190" />
+        <di:waypoint x="620" y="1195" />
+        <di:waypoint x="620" y="1100" />
+        <di:waypoint x="690" y="1100" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="641" y="1249" width="17" height="14" />
+          <dc:Bounds x="635" y="1110" width="17" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1tpcugn_di" bpmnElement="Flow_1tpcugn">
-        <di:waypoint x="790" y="1190" />
-        <di:waypoint x="832" y="1190" />
+        <di:waypoint x="790" y="1100" />
+        <di:waypoint x="832" y="1100" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1jmttjs_di" bpmnElement="Flow_1jmttjs">
-        <di:waypoint x="626" y="1285" />
-        <di:waypoint x="626" y="1220" />
+        <di:waypoint x="645" y="1220" />
         <di:waypoint x="915" y="1220" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="608" y="1245" width="11" height="14" />
+          <dc:Bounds x="777" y="1201" width="11" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0p4kk1g_di" bpmnElement="Flow_0p4kk1g">
@@ -861,12 +860,12 @@
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1rt1e8c_di" bpmnElement="Flow_1rt1e8c">
-        <di:waypoint x="506" y="1310" />
-        <di:waypoint x="601" y="1310" />
+        <di:waypoint x="506" y="1220" />
+        <di:waypoint x="595" y="1220" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1ytlgty_di" bpmnElement="Flow_1ytlgty">
-        <di:waypoint x="319" y="1310" />
-        <di:waypoint x="406" y="1310" />
+        <di:waypoint x="319" y="1220" />
+        <di:waypoint x="406" y="1220" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0msv6sm_di" bpmnElement="Flow_0msv6sm">
         <di:waypoint x="1160" y="805" />
@@ -1013,10 +1012,10 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_00xshqp_di" bpmnElement="Flow_00xshqp">
         <di:waypoint x="301" y="230" />
-        <di:waypoint x="301" y="1292" />
+        <di:waypoint x="301" y="1202" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_17po4ek_di" bpmnElement="Flow_17po4ek">
-        <di:waypoint x="740" y="1150" />
+        <di:waypoint x="740" y="1060" />
         <di:waypoint x="740" y="230" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_11fuo85_di" bpmnElement="Flow_11fuo85">
