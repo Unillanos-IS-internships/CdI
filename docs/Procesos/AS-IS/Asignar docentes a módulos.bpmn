@@ -25,19 +25,19 @@
       <bpmn:incoming>Flow_1f5xsnv</bpmn:incoming>
       <bpmn:outgoing>Flow_1v37jck</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_00svlw7" name="Ingresar docentes a módulo y horario en Excel Inscripciones">
+    <bpmn:task id="Activity_00svlw7" name="Ingresar docentes a  Excel Inscripciones">
       <bpmn:incoming>Flow_07v29yt</bpmn:incoming>
       <bpmn:outgoing>Flow_0aldkc6</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_07v29yt" sourceRef="Activity_1ne4d5i" targetRef="Activity_00svlw7" />
-    <bpmn:task id="Activity_1rv9h29" name="Ingresar docentes a módulo y horario en Excel Consolidado">
+    <bpmn:task id="Activity_1rv9h29" name="Ingresar docentes a Excel Consolidado">
       <bpmn:incoming>Flow_0aldkc6</bpmn:incoming>
       <bpmn:outgoing>Flow_1kdsdmn</bpmn:outgoing>
     </bpmn:task>
     <bpmn:endEvent id="Event_0jm6yw5" name="Asignación realizada">
       <bpmn:incoming>Flow_1kdsdmn</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:task id="Activity_1ne4d5i" name="Asignar docentes a horarios y modulos">
+    <bpmn:task id="Activity_1ne4d5i" name="Asignar docentes a horarios y módulos en un Excel">
       <bpmn:incoming>Flow_1v37jck</bpmn:incoming>
       <bpmn:outgoing>Flow_07v29yt</bpmn:outgoing>
     </bpmn:task>
@@ -52,12 +52,12 @@
         <dc:Bounds x="160" y="80" width="1200" height="370" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_1czgb8d_di" bpmnElement="Lane_1czgb8d" isHorizontal="true">
-        <dc:Bounds x="190" y="270" width="1170" height="180" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_0bwgy0x" bpmnElement="Lane_032utao" isHorizontal="true">
         <dc:Bounds x="190" y="80" width="1170" height="190" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_1czgb8d_di" bpmnElement="Lane_1czgb8d" isHorizontal="true">
+        <dc:Bounds x="190" y="270" width="1170" height="180" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_066siu9_di" bpmnElement="Activity_066siu9">

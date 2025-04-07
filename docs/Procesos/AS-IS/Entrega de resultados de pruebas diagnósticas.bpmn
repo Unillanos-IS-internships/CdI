@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_01go4et" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.19.0">
   <bpmn:collaboration id="Collaboration_0hn4asr">
     <bpmn:participant id="Participant_0wa9zjb" name="Entrega de resultados de pruebas diagnosticas" processRef="Process_0d9o5r4" />
   </bpmn:collaboration>
@@ -44,7 +44,7 @@
       <bpmn:outgoing>Flow_1i8gk77</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_1h3mys5" />
     </bpmn:startEvent>
-    <bpmn:callActivity id="Activity_0asklzb" name="Ingresar homologación a consolidado" calledElement="homologarModulos">
+    <bpmn:callActivity id="Activity_0asklzb" name="Homologación de módulos para un estudiante" calledElement="REVISAR">
       <bpmn:incoming>Flow_1uqkvh6</bpmn:incoming>
       <bpmn:outgoing>Flow_1othuhw</bpmn:outgoing>
     </bpmn:callActivity>
@@ -96,6 +96,7 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_19x68ad_di" bpmnElement="Activity_0asklzb">
         <dc:Bounds x="560" y="130" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_0fcbbzz" bpmnElement="Event_06j21p7">
         <dc:Bounds x="1102" y="152" width="36" height="36" />
