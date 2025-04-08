@@ -68,7 +68,7 @@
       <bpmn:incoming>Flow_197r2th</bpmn:incoming>
       <bpmn:outgoing>Flow_06lz4ze</bpmn:outgoing>
     </bpmn:parallelGateway>
-    <bpmn:endEvent id="Event_1lc0sku" name="Cierre de proceso">
+    <bpmn:endEvent id="Event_1lc0sku" name="Periodo de exámenes culminado">
       <bpmn:incoming>Flow_0ndiobo</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:task id="Activity_0fis6o7" name="Ingresar información a Excel consolidado">
@@ -140,7 +140,7 @@
       <bpmndi:BPMNShape id="Event_0keoqsa_di" bpmnElement="Event_1lc0sku">
         <dc:Bounds x="2192" y="232" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2166" y="275" width="88" height="14" />
+          <dc:Bounds x="2183" y="275" width="54" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1tz1gpa_di" bpmnElement="Activity_0fis6o7">
