@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1486hrp" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1486hrp" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
   <bpmn:collaboration id="Collaboration_0qx15yv">
-    <bpmn:participant id="Participant_1dugm63" name="Solicitar certificado de finalización de módulos" processRef="Process_047wi5p" />
+    <bpmn:participant id="Participant_1dugm63" name="Solicitar estado de inscripción" processRef="Process_047wi5p" />
     <bpmn:participant id="Participant_0yilxp9" name="Estudiante" processRef="Process_1o65rtt" />
     <bpmn:messageFlow id="Flow_0tlc1lf" sourceRef="Participant_0yilxp9" targetRef="StartEvent_1" />
     <bpmn:messageFlow id="Flow_0bhvhmz" sourceRef="Activity_1tm6fbu" targetRef="Participant_0yilxp9" />
     <bpmn:messageFlow id="Flow_1t4shz2" sourceRef="Activity_1k1y5ue" targetRef="Participant_0yilxp9" />
+    <bpmn:textAnnotation id="TextAnnotation_15354d9">
+      <bpmn:text>Pasar a Autoservicio</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0i6kjvb" associationDirection="None" sourceRef="Participant_1dugm63" targetRef="TextAnnotation_15354d9" />
   </bpmn:collaboration>
   <bpmn:process id="Process_047wi5p" isExecutable="true">
     <bpmn:laneSet id="LaneSet_1py9qlj">
@@ -64,16 +68,16 @@
   <bpmn:process id="Process_1o65rtt" isExecutable="false" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0qx15yv">
-      <bpmndi:BPMNShape id="Participant_1dugm63_di" bpmnElement="Participant_1dugm63" isHorizontal="true">
+      <bpmndi:BPMNShape id="Participant_1dugm63_di" bpmnElement="Participant_1dugm63" isHorizontal="true" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
         <dc:Bounds x="150" y="270" width="1160" height="490" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_08a5brh_di" bpmnElement="Lane_08a5brh" isHorizontal="true">
-        <dc:Bounds x="180" y="270" width="1130" height="330" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_1eez96m_di" bpmnElement="Lane_1eez96m" isHorizontal="true">
         <dc:Bounds x="180" y="600" width="1130" height="160" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_08a5brh_di" bpmnElement="Lane_08a5brh" isHorizontal="true">
+        <dc:Bounds x="180" y="270" width="1130" height="330" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1uft0iz_di" bpmnElement="StartEvent_1">
@@ -160,6 +164,10 @@
         <dc:Bounds x="150" y="80" width="1160" height="130" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0i6kjvb_di" bpmnElement="Association_0i6kjvb">
+        <di:waypoint x="216" y="270" />
+        <di:waypoint x="290" y="249" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0tlc1lf_di" bpmnElement="Flow_0tlc1lf">
         <di:waypoint x="250" y="210" />
         <di:waypoint x="250" y="422" />
@@ -172,6 +180,10 @@
         <di:waypoint x="1080" y="470" />
         <di:waypoint x="1080" y="210" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_15354d9_di" bpmnElement="TextAnnotation_15354d9" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
+        <dc:Bounds x="290" y="220" width="100" height="41" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
