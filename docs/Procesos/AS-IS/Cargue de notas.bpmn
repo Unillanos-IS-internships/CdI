@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_13smt5m" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_13smt5m" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
   <bpmn:collaboration id="Collaboration_1peojda">
-    <bpmn:participant id="Participant_0wa9zjb" name="Inscripción modulos" processRef="Process_0ouhe6e" />
-    <bpmn:textAnnotation id="TextAnnotation_00xgmnm">
-      <bpmn:text>eSTO NO va a aquí</bpmn:text>
-    </bpmn:textAnnotation>
-    <bpmn:association id="Association_1r5upo6" associationDirection="None" sourceRef="Activity_0b0d968" targetRef="TextAnnotation_00xgmnm" />
+    <bpmn:participant id="Participant_0wa9zjb" name="Cargue de notas" processRef="Process_0ouhe6e" />
   </bpmn:collaboration>
   <bpmn:process id="Process_0ouhe6e" isExecutable="true">
     <bpmn:laneSet id="LaneSet_1kl4xlv">
       <bpmn:lane id="Lane_1sdvtf0" name="Coordinador del Plan BULL">
         <bpmn:flowNodeRef>StartEvent_1</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0b0d968</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_083vgso</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0cnvllv</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_14m8ltt</bpmn:flowNodeRef>
@@ -28,20 +23,16 @@
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:startEvent id="StartEvent_1" name="Fecha inicio de cargue de notas">
-      <bpmn:outgoing>Flow_1i8gk77</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0oa5bt9</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_1yyjpo9" />
     </bpmn:startEvent>
-    <bpmn:task id="Activity_0b0d968" name="Identificar fechas">
-      <bpmn:incoming>Flow_1i8gk77</bpmn:incoming>
-      <bpmn:outgoing>Flow_1p0c442</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:task id="Activity_083vgso" name="Notificar a docentes">
       <bpmn:incoming>Flow_1bv9i3e</bpmn:incoming>
       <bpmn:outgoing>Flow_08vkf8t</bpmn:outgoing>
       <bpmn:multiInstanceLoopCharacteristics />
     </bpmn:task>
-    <bpmn:task id="Activity_010a6pm" name="Apertura plataforma inscripciones">
-      <bpmn:incoming>Flow_1p0c442</bpmn:incoming>
+    <bpmn:task id="Activity_010a6pm" name="Apertura plataforma cargue de notas">
+      <bpmn:incoming>Flow_0oa5bt9</bpmn:incoming>
       <bpmn:outgoing>Flow_1bv9i3e</bpmn:outgoing>
     </bpmn:task>
     <bpmn:task id="Activity_03oiff8" name="Cerrar plataforma de cargue de notas">
@@ -77,8 +68,6 @@
       <bpmn:incoming>Flow_1r26fko</bpmn:incoming>
       <bpmn:outgoing>Flow_10l64wd</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_1i8gk77" sourceRef="StartEvent_1" targetRef="Activity_0b0d968" />
-    <bpmn:sequenceFlow id="Flow_1p0c442" sourceRef="Activity_0b0d968" targetRef="Activity_010a6pm" />
     <bpmn:sequenceFlow id="Flow_1bv9i3e" sourceRef="Activity_010a6pm" targetRef="Activity_083vgso" />
     <bpmn:sequenceFlow id="Flow_08vkf8t" sourceRef="Activity_083vgso" targetRef="Activity_03oiff8" />
     <bpmn:sequenceFlow id="Flow_15b5gyl" sourceRef="Activity_03oiff8" targetRef="Activity_1lew5hk" />
@@ -89,11 +78,12 @@
     <bpmn:sequenceFlow id="Flow_0ndiobo" sourceRef="Activity_0fis6o7" targetRef="Event_1lc0sku" />
     <bpmn:sequenceFlow id="Flow_0u06xr0" sourceRef="Gateway_18n8wlp" targetRef="Activity_0fis6o7" />
     <bpmn:sequenceFlow id="Flow_10l64wd" sourceRef="Activity_0fs8dgk" targetRef="Gateway_18n8wlp" />
+    <bpmn:sequenceFlow id="Flow_0oa5bt9" sourceRef="StartEvent_1" targetRef="Activity_010a6pm" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1peojda">
       <bpmndi:BPMNShape id="Participant_0wa9zjb_di" bpmnElement="Participant_0wa9zjb" isHorizontal="true">
-        <dc:Bounds x="160" y="85" width="2210" height="460" />
+        <dc:Bounds x="160" y="90" width="2210" height="455" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_0qyrlwr_di" bpmnElement="Lane_0qyrlwr" isHorizontal="true">
@@ -101,7 +91,7 @@
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_1sdvtf0_di" bpmnElement="Lane_1sdvtf0" isHorizontal="true">
-        <dc:Bounds x="190" y="85" width="2180" height="230" />
+        <dc:Bounds x="190" y="90" width="2180" height="225" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1cq6zc0_di" bpmnElement="StartEvent_1">
@@ -110,15 +100,11 @@
           <dc:Bounds x="291" y="230" width="80" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1do5ime_di" bpmnElement="Activity_0b0d968" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
-        <dc:Bounds x="400" y="165" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1225cau_di" bpmnElement="Activity_083vgso">
         <dc:Bounds x="780" y="165" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_010a6pm_di" bpmnElement="Activity_010a6pm" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
+      <bpmndi:BPMNShape id="Activity_010a6pm_di" bpmnElement="Activity_010a6pm">
         <dc:Bounds x="580" y="405" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -156,16 +142,6 @@
         <dc:Bounds x="1760" y="395" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_1i8gk77_di" bpmnElement="Flow_1i8gk77">
-        <di:waypoint x="348" y="205" />
-        <di:waypoint x="400" y="205" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1p0c442_di" bpmnElement="Flow_1p0c442">
-        <di:waypoint x="500" y="205" />
-        <di:waypoint x="540" y="205" />
-        <di:waypoint x="540" y="445" />
-        <di:waypoint x="580" y="445" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1bv9i3e_di" bpmnElement="Flow_1bv9i3e">
         <di:waypoint x="680" y="445" />
         <di:waypoint x="730" y="445" />
@@ -220,14 +196,12 @@
         <di:waypoint x="1970" y="435" />
         <di:waypoint x="1970" y="230" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_1r5upo6_di" bpmnElement="Association_1r5upo6">
-        <di:waypoint x="486" y="165" />
-        <di:waypoint x="526" y="121" />
+      <bpmndi:BPMNEdge id="Flow_0oa5bt9_di" bpmnElement="Flow_0oa5bt9">
+        <di:waypoint x="348" y="205" />
+        <di:waypoint x="464" y="205" />
+        <di:waypoint x="464" y="445" />
+        <di:waypoint x="580" y="445" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_00xgmnm_di" bpmnElement="TextAnnotation_00xgmnm">
-        <dc:Bounds x="500" y="80" width="100" height="41" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
