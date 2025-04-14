@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1tg0crg" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1tg0crg" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
   <bpmn:collaboration id="Collaboration_1nuzhf0">
-    <bpmn:participant id="Participant_1dugm63" name="Solicitud certificado de módulos" processRef="Process_1ob070l" />
+    <bpmn:participant id="Participant_1dugm63" name="Solicitud certificado culminación de módulos" processRef="Process_1ob070l" />
     <bpmn:participant id="Participant_0yilxp9" name="Estudiante" processRef="Process_1o65rtt" />
     <bpmn:messageFlow id="Flow_0tlc1lf" sourceRef="Participant_0yilxp9" targetRef="StartEvent_1" />
     <bpmn:messageFlow id="Flow_1t4shz2" sourceRef="Activity_1k1y5ue" targetRef="Participant_0yilxp9" />
@@ -21,6 +21,7 @@
         <bpmn:flowNodeRef>Activity_0l17zwh</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0e54spr</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_161puuz</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_13v9dsp</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1mvotiz</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1tm6fbu</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_008l54u</bpmn:flowNodeRef>
@@ -30,85 +31,84 @@
         <bpmn:flowNodeRef>Activity_1uzeqkq</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1k1y5ue</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_18q0d4q</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_13v9dsp</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_0392weu" name="Director">
         <bpmn:flowNodeRef>Activity_1if39kd</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:sequenceFlow id="Flow_0dt00a7" sourceRef="Activity_0l17zwh" targetRef="Activity_0e54spr" />
-    <bpmn:sequenceFlow id="Flow_0l8qwtc" sourceRef="Activity_0e54spr" targetRef="Activity_161puuz" />
-    <bpmn:sequenceFlow id="Flow_1oz4056" sourceRef="Activity_161puuz" targetRef="Gateway_13v9dsp" />
-    <bpmn:sequenceFlow id="Flow_1czuqaa" name="NO" sourceRef="Gateway_1mvotiz" targetRef="Activity_1tm6fbu" />
-    <bpmn:sequenceFlow id="Flow_06va5bg" sourceRef="Gateway_1mvotiz" targetRef="Activity_05602hz" />
-    <bpmn:sequenceFlow id="Flow_1w3xpjo" sourceRef="Activity_1tm6fbu" targetRef="Event_008l54u" />
-    <bpmn:sequenceFlow id="Flow_0au9v2x" sourceRef="Activity_05602hz" targetRef="Activity_1uzeqkq" />
-    <bpmn:sequenceFlow id="Flow_10iolft" sourceRef="Activity_1uzeqkq" targetRef="Activity_1if39kd" />
+    <bpmn:sequenceFlow id="Flow_1wkprec" sourceRef="Activity_1k1y5ue" targetRef="Event_18q0d4q" />
     <bpmn:sequenceFlow id="Flow_1pn0818" sourceRef="Activity_1if39kd" targetRef="Activity_1k1y5ue" />
-    <bpmn:sequenceFlow id="Flow_1qukdqw" sourceRef="StartEvent_1" targetRef="Activity_0l17zwh" />
-    <bpmn:startEvent id="StartEvent_1" name="Solicitud recibida">
-      <bpmn:outgoing>Flow_1qukdqw</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_0xbs1b3" />
-    </bpmn:startEvent>
-    <bpmn:task id="Activity_0l17zwh" name="Solicitar enviar información mediante formulario">
-      <bpmn:incoming>Flow_1qukdqw</bpmn:incoming>
-      <bpmn:outgoing>Flow_0dt00a7</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Activity_0e54spr" name="Recibir información">
-      <bpmn:incoming>Flow_0dt00a7</bpmn:incoming>
-      <bpmn:outgoing>Flow_0l8qwtc</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="Activity_161puuz" name="Indagar información de estudiante en consolidado notas">
-      <bpmn:incoming>Flow_0l8qwtc</bpmn:incoming>
-      <bpmn:outgoing>Flow_1oz4056</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:exclusiveGateway id="Gateway_13v9dsp" name="¿está inscrito actuallment?">
-      <bpmn:incoming>Flow_1oz4056</bpmn:incoming>
-      <bpmn:outgoing>Flow_12fjryh</bpmn:outgoing>
-      <bpmn:outgoing>Flow_19bitgj</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="Flow_12fjryh" sourceRef="Gateway_13v9dsp" targetRef="Gateway_1mvotiz" />
-    <bpmn:exclusiveGateway id="Gateway_1mvotiz" name="¿Realizó todos lo módulos ?">
-      <bpmn:incoming>Flow_12fjryh</bpmn:incoming>
-      <bpmn:outgoing>Flow_1czuqaa</bpmn:outgoing>
-      <bpmn:outgoing>Flow_06va5bg</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_1tm6fbu" name="Notificar a estudiante rechazo">
-      <bpmn:incoming>Flow_1czuqaa</bpmn:incoming>
-      <bpmn:outgoing>Flow_1w3xpjo</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:endEvent id="Event_008l54u" name="solicitud rechazada no ha visto todos los módulos">
-      <bpmn:incoming>Flow_1w3xpjo</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:task id="Activity_05602hz" name="Crear certificado">
-      <bpmn:incoming>Flow_06va5bg</bpmn:incoming>
-      <bpmn:outgoing>Flow_0au9v2x</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_19bitgj" sourceRef="Gateway_13v9dsp" targetRef="Activity_0orzdt6" />
+    <bpmn:sequenceFlow id="Flow_10iolft" sourceRef="Activity_1uzeqkq" targetRef="Activity_1if39kd" />
     <bpmn:sequenceFlow id="Flow_0d38d9l" sourceRef="Activity_0orzdt6" targetRef="Event_1un50ua" />
-    <bpmn:task id="Activity_0orzdt6" name="Notificar rechazo">
-      <bpmn:incoming>Flow_19bitgj</bpmn:incoming>
-      <bpmn:outgoing>Flow_0d38d9l</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:endEvent id="Event_1un50ua" name="solicitud rechazada por aún estar inscrito">
-      <bpmn:incoming>Flow_0d38d9l</bpmn:incoming>
+    <bpmn:sequenceFlow id="Flow_0au9v2x" sourceRef="Activity_05602hz" targetRef="Activity_1uzeqkq" />
+    <bpmn:sequenceFlow id="Flow_1w3xpjo" sourceRef="Activity_1tm6fbu" targetRef="Event_008l54u" />
+    <bpmn:sequenceFlow id="Flow_06va5bg" sourceRef="Gateway_1mvotiz" targetRef="Activity_05602hz" />
+    <bpmn:sequenceFlow id="Flow_1czuqaa" name="NO" sourceRef="Gateway_1mvotiz" targetRef="Activity_1tm6fbu" />
+    <bpmn:sequenceFlow id="Flow_19bitgj" sourceRef="Gateway_13v9dsp" targetRef="Activity_0orzdt6" />
+    <bpmn:sequenceFlow id="Flow_12fjryh" sourceRef="Gateway_13v9dsp" targetRef="Gateway_1mvotiz" />
+    <bpmn:sequenceFlow id="Flow_1oz4056" sourceRef="Activity_161puuz" targetRef="Gateway_13v9dsp" />
+    <bpmn:sequenceFlow id="Flow_0l8qwtc" sourceRef="Activity_0e54spr" targetRef="Activity_161puuz" />
+    <bpmn:sequenceFlow id="Flow_0dt00a7" sourceRef="Activity_0l17zwh" targetRef="Activity_0e54spr" />
+    <bpmn:sequenceFlow id="Flow_1qukdqw" sourceRef="StartEvent_1" targetRef="Activity_0l17zwh" />
+    <bpmn:endEvent id="Event_18q0d4q" name="Certificación enviada">
+      <bpmn:incoming>Flow_1wkprec</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:task id="Activity_1uzeqkq" name="Ingresar código de certificado en consolidado de certificados">
-      <bpmn:incoming>Flow_0au9v2x</bpmn:incoming>
-      <bpmn:outgoing>Flow_10iolft</bpmn:outgoing>
+    <bpmn:task id="Activity_1k1y5ue" name="Enviar certificado">
+      <bpmn:incoming>Flow_1pn0818</bpmn:incoming>
+      <bpmn:outgoing>Flow_1wkprec</bpmn:outgoing>
     </bpmn:task>
     <bpmn:task id="Activity_1if39kd" name="Firmar certificado">
       <bpmn:incoming>Flow_10iolft</bpmn:incoming>
       <bpmn:outgoing>Flow_1pn0818</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_1k1y5ue" name="enviar certificado">
-      <bpmn:incoming>Flow_1pn0818</bpmn:incoming>
-      <bpmn:outgoing>Flow_1wkprec</bpmn:outgoing>
+    <bpmn:task id="Activity_1uzeqkq" name="Ingresar código de certificado en consolidado de certificados">
+      <bpmn:incoming>Flow_0au9v2x</bpmn:incoming>
+      <bpmn:outgoing>Flow_10iolft</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:endEvent id="Event_18q0d4q" name="Certificación enviada">
-      <bpmn:incoming>Flow_1wkprec</bpmn:incoming>
+    <bpmn:endEvent id="Event_1un50ua" name="solicitud rechazada por aún estar inscrito">
+      <bpmn:incoming>Flow_0d38d9l</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_1wkprec" sourceRef="Activity_1k1y5ue" targetRef="Event_18q0d4q" />
+    <bpmn:task id="Activity_0orzdt6" name="Notificar rechazo">
+      <bpmn:incoming>Flow_19bitgj</bpmn:incoming>
+      <bpmn:outgoing>Flow_0d38d9l</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_05602hz" name="Crear certificado">
+      <bpmn:incoming>Flow_06va5bg</bpmn:incoming>
+      <bpmn:outgoing>Flow_0au9v2x</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_008l54u" name="Solicitud rechazada no ha visto todos los módulos">
+      <bpmn:incoming>Flow_1w3xpjo</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Activity_1tm6fbu" name="Notificar a estudiante rechazo">
+      <bpmn:incoming>Flow_1czuqaa</bpmn:incoming>
+      <bpmn:outgoing>Flow_1w3xpjo</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="Gateway_1mvotiz" name="¿Realizó todos lo módulos ?">
+      <bpmn:incoming>Flow_12fjryh</bpmn:incoming>
+      <bpmn:outgoing>Flow_1czuqaa</bpmn:outgoing>
+      <bpmn:outgoing>Flow_06va5bg</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_13v9dsp" name="¿Está inscrito actualmente?">
+      <bpmn:incoming>Flow_1oz4056</bpmn:incoming>
+      <bpmn:outgoing>Flow_12fjryh</bpmn:outgoing>
+      <bpmn:outgoing>Flow_19bitgj</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_161puuz" name="Indagar información de estudiante en consolidado notas">
+      <bpmn:incoming>Flow_0l8qwtc</bpmn:incoming>
+      <bpmn:outgoing>Flow_1oz4056</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_0e54spr" name="Recibir información">
+      <bpmn:incoming>Flow_0dt00a7</bpmn:incoming>
+      <bpmn:outgoing>Flow_0l8qwtc</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_0l17zwh" name="Solicitar enviar información mediante formulario">
+      <bpmn:incoming>Flow_1qukdqw</bpmn:incoming>
+      <bpmn:outgoing>Flow_0dt00a7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:startEvent id="StartEvent_1" name="Solicitud recibida">
+      <bpmn:outgoing>Flow_1qukdqw</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0xbs1b3" />
+    </bpmn:startEvent>
   </bpmn:process>
   <bpmn:process id="Process_1o65rtt" isExecutable="false" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -146,7 +146,7 @@
       <bpmndi:BPMNShape id="Gateway_13v9dsp_di" bpmnElement="Gateway_13v9dsp" isMarkerVisible="true" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
         <dc:Bounds x="845" y="585" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="837" y="642" width="66" height="27" />
+          <dc:Bounds x="837" y="642" width="67" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_1v9ik2t" bpmnElement="Gateway_1mvotiz" isMarkerVisible="true" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
@@ -267,6 +267,13 @@
         <dc:Bounds x="160" y="80" width="1890" height="140" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Group_0upci22_di" bpmnElement="Group_0upci22" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
+        <dc:Bounds x="250" y="440" width="1330" height="310" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0uoer9x_di" bpmnElement="TextAnnotation_0uoer9x" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
+        <dc:Bounds x="290" y="370" width="130" height="40" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_1he0h50_di" bpmnElement="Association_1he0h50">
         <di:waypoint x="260" y="440" />
         <di:waypoint x="304" y="410" />
@@ -291,13 +298,6 @@
         <di:waypoint x="420" y="570" />
         <di:waypoint x="420" y="220" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Group_0upci22_di" bpmnElement="Group_0upci22" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
-        <dc:Bounds x="250" y="440" width="1330" height="310" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0uoer9x_di" bpmnElement="TextAnnotation_0uoer9x" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
-        <dc:Bounds x="290" y="370" width="130" height="40" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

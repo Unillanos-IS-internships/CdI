@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1y9tefg" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1y9tefg" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
   <bpmn:collaboration id="Collaboration_07bxwge">
     <bpmn:participant id="Participant_1dugm63" name="Solicitar historial de módulos" processRef="Process_1eratq2" />
     <bpmn:participant id="Participant_0yilxp9" name="Estudiante" processRef="Process_1o65rtt" />
@@ -63,11 +63,11 @@
       <bpmn:incoming>Flow_19a4tqc</bpmn:incoming>
       <bpmn:outgoing>Flow_1wkprec</bpmn:outgoing>
     </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_19a4tqc" sourceRef="Activity_1m38k7k" targetRef="Activity_1k1y5ue" />
     <bpmn:task id="Activity_1m38k7k" name="Pegar notas en correo">
       <bpmn:incoming>Flow_0au9v2x</bpmn:incoming>
       <bpmn:outgoing>Flow_19a4tqc</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_19a4tqc" sourceRef="Activity_1m38k7k" targetRef="Activity_1k1y5ue" />
   </bpmn:process>
   <bpmn:process id="Process_1o65rtt" isExecutable="false" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -121,7 +121,7 @@
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1m38k7k_di" bpmnElement="Activity_1m38k7k">
-        <dc:Bounds x="800" y="440" width="100" height="80" />
+        <dc:Bounds x="790" y="440" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0molhi6_di" bpmnElement="Flow_0molhi6">
@@ -154,18 +154,22 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0kkocog" bpmnElement="Flow_0au9v2x">
         <di:waypoint x="740" y="480" />
-        <di:waypoint x="800" y="480" />
+        <di:waypoint x="790" y="480" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_1l3vfjm" bpmnElement="Flow_1wkprec">
         <di:waypoint x="1030" y="480" />
         <di:waypoint x="1102" y="480" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_19a4tqc_di" bpmnElement="Flow_19a4tqc">
-        <di:waypoint x="900" y="480" />
+        <di:waypoint x="890" y="480" />
         <di:waypoint x="930" y="480" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_0yilxp9_di" bpmnElement="Participant_0yilxp9" isHorizontal="true">
-        <dc:Bounds x="138" y="50" width="1150" height="130" />
+        <dc:Bounds x="138" y="50" width="1112" height="130" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1pyxwqg_di" bpmnElement="TextAnnotation_1pyxwqg" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
+        <dc:Bounds x="290" y="190" width="99.99202297383536" height="40.8423739629866" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Association_0ffreq1_di" bpmnElement="Association_0ffreq1">
@@ -184,10 +188,6 @@
         <di:waypoint x="980" y="440" />
         <di:waypoint x="980" y="180" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_1pyxwqg_di" bpmnElement="TextAnnotation_1pyxwqg" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
-        <dc:Bounds x="290" y="190" width="99.99202297383536" height="40.8423739629866" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

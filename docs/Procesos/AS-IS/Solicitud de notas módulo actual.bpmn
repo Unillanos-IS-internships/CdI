@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_125o35s" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.27.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_125o35s" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.33.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
   <bpmn:collaboration id="Collaboration_128za6q">
-    <bpmn:participant id="Participant_1dugm63" name="Solicitar de notas de módulos" processRef="Process_05gwam7" />
+    <bpmn:participant id="Participant_1dugm63" name="Solicitud de notas módulo actual" processRef="Process_05gwam7" />
     <bpmn:participant id="Participant_0yilxp9" name="Estudiante" processRef="Process_1o65rtt" />
     <bpmn:messageFlow id="Flow_0tlc1lf" sourceRef="Participant_0yilxp9" targetRef="StartEvent_1" />
     <bpmn:messageFlow id="Flow_0bhvhmz" sourceRef="Activity_1tm6fbu" targetRef="Participant_0yilxp9" />
@@ -15,9 +15,10 @@
         <bpmn:flowNodeRef>Gateway_1mvotiz</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1tm6fbu</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_008l54u</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_05602hz</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1fx4cej</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1k1y5ue</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_18q0d4q</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_05602hz</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:startEvent id="StartEvent_1" name="Solicitud recibida">
@@ -29,35 +30,40 @@
     <bpmn:sequenceFlow id="Flow_1czuqaa" name="NO" sourceRef="Gateway_1mvotiz" targetRef="Activity_1tm6fbu" />
     <bpmn:sequenceFlow id="Flow_06va5bg" name="SI" sourceRef="Gateway_1mvotiz" targetRef="Activity_05602hz" />
     <bpmn:sequenceFlow id="Flow_1w3xpjo" sourceRef="Activity_1tm6fbu" targetRef="Event_008l54u" />
-    <bpmn:sequenceFlow id="Flow_0au9v2x" sourceRef="Activity_05602hz" targetRef="Activity_1k1y5ue" />
+    <bpmn:sequenceFlow id="Flow_0au9v2x" sourceRef="Activity_05602hz" targetRef="Activity_1fx4cej" />
     <bpmn:sequenceFlow id="Flow_1wkprec" sourceRef="Activity_1k1y5ue" targetRef="Event_18q0d4q" />
-    <bpmn:task id="Activity_161puuz" name="Indagar información de estudiante en consolidado">
+    <bpmn:task id="Activity_161puuz" name="Indagar información de estudiante en consolidado inscritos">
       <bpmn:incoming>Flow_0molhi6</bpmn:incoming>
       <bpmn:outgoing>Flow_1oz4056</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:exclusiveGateway id="Gateway_1mvotiz" name="¿Realizó módulos?">
+    <bpmn:exclusiveGateway id="Gateway_1mvotiz" name="¿Está estudiando?">
       <bpmn:incoming>Flow_1oz4056</bpmn:incoming>
       <bpmn:outgoing>Flow_1czuqaa</bpmn:outgoing>
       <bpmn:outgoing>Flow_06va5bg</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_1tm6fbu" name="Notificar a estudiante no tiene módulos cursados">
+    <bpmn:task id="Activity_1tm6fbu" name="Notificar a estudiante no tiene módulo inscrito">
       <bpmn:incoming>Flow_1czuqaa</bpmn:incoming>
       <bpmn:outgoing>Flow_1w3xpjo</bpmn:outgoing>
     </bpmn:task>
     <bpmn:endEvent id="Event_008l54u" name="Solicitud procesada">
       <bpmn:incoming>Flow_1w3xpjo</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:task id="Activity_1k1y5ue" name="Envió de notas">
+    <bpmn:task id="Activity_05602hz" name="Seleccionar notas estudiante en consolidado de notas">
+      <bpmn:incoming>Flow_06va5bg</bpmn:incoming>
+      <bpmn:outgoing>Flow_0au9v2x</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Activity_1fx4cej" name="Pegar notas en correo">
       <bpmn:incoming>Flow_0au9v2x</bpmn:incoming>
+      <bpmn:outgoing>Flow_1h3h8tk</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1h3h8tk" sourceRef="Activity_1fx4cej" targetRef="Activity_1k1y5ue" />
+    <bpmn:task id="Activity_1k1y5ue" name="Enviar correo con notas">
+      <bpmn:incoming>Flow_1h3h8tk</bpmn:incoming>
       <bpmn:outgoing>Flow_1wkprec</bpmn:outgoing>
     </bpmn:task>
     <bpmn:endEvent id="Event_18q0d4q" name="Solicitud enviada">
       <bpmn:incoming>Flow_1wkprec</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:task id="Activity_05602hz" name="Indagar notas estudiante en documentos docente">
-      <bpmn:incoming>Flow_06va5bg</bpmn:incoming>
-      <bpmn:outgoing>Flow_0au9v2x</bpmn:outgoing>
-    </bpmn:task>
   </bpmn:process>
   <bpmn:process id="Process_1o65rtt" isExecutable="false" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -83,7 +89,7 @@
       <bpmndi:BPMNShape id="BPMNShape_1v9ik2t" bpmnElement="Gateway_1mvotiz" isMarkerVisible="true">
         <dc:Bounds x="515" y="415" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="456" y="390" width="48" height="27" />
+          <dc:Bounds x="450" y="390" width="60" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_183hdvl" bpmnElement="Activity_1tm6fbu">
@@ -91,23 +97,27 @@
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_08y6pea" bpmnElement="Event_008l54u">
-        <dc:Bounds x="792" y="342" width="36" height="36" />
+        <dc:Bounds x="782" y="342" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="785" y="385" width="52" height="27" />
+          <dc:Bounds x="775" y="385" width="52" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_0n3rnub" bpmnElement="Activity_05602hz">
-        <dc:Bounds x="660" y="470" width="100" height="80" />
+        <dc:Bounds x="600" y="460" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1fx4cej_di" bpmnElement="Activity_1fx4cej">
+        <dc:Bounds x="750" y="460" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_1emgtrz" bpmnElement="Activity_1k1y5ue">
-        <dc:Bounds x="880" y="470" width="100" height="80" />
+        <dc:Bounds x="900" y="460" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_01rwfsy" bpmnElement="Event_18q0d4q">
-        <dc:Bounds x="1092" y="492" width="36" height="36" />
+        <dc:Bounds x="1092" y="482" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1069" y="535" width="84" height="14" />
+          <dc:Bounds x="1069" y="525" width="84" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0molhi6_di" bpmnElement="Flow_0molhi6">
@@ -128,26 +138,30 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0zc2gvb" bpmnElement="Flow_06va5bg">
         <di:waypoint x="540" y="465" />
-        <di:waypoint x="540" y="510" />
-        <di:waypoint x="660" y="510" />
+        <di:waypoint x="540" y="500" />
+        <di:waypoint x="600" y="500" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="550" y="485" width="11" height="14" />
+          <dc:Bounds x="550" y="479" width="11" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_1aymejq" bpmnElement="Flow_1w3xpjo">
         <di:waypoint x="700" y="360" />
-        <di:waypoint x="792" y="360" />
+        <di:waypoint x="782" y="360" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_0kkocog" bpmnElement="Flow_0au9v2x">
-        <di:waypoint x="760" y="510" />
-        <di:waypoint x="880" y="510" />
+        <di:waypoint x="700" y="500" />
+        <di:waypoint x="750" y="500" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_1l3vfjm" bpmnElement="Flow_1wkprec">
-        <di:waypoint x="980" y="510" />
-        <di:waypoint x="1092" y="510" />
+        <di:waypoint x="1000" y="500" />
+        <di:waypoint x="1092" y="500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1h3h8tk_di" bpmnElement="Flow_1h3h8tk">
+        <di:waypoint x="850" y="500" />
+        <di:waypoint x="900" y="500" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Participant_0yilxp9_di" bpmnElement="Participant_0yilxp9" isHorizontal="true">
-        <dc:Bounds x="160" y="80" width="1150" height="130" />
+        <dc:Bounds x="210" y="80" width="840" height="130" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0tlc1lf_di" bpmnElement="Flow_0tlc1lf">
@@ -159,8 +173,8 @@
         <di:waypoint x="650" y="210" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1t4shz2_di" bpmnElement="Flow_1t4shz2">
-        <di:waypoint x="930" y="470" />
-        <di:waypoint x="930" y="210" />
+        <di:waypoint x="950" y="460" />
+        <di:waypoint x="950" y="210" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
